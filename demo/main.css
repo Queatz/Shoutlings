@@ -1,0 +1,67 @@
+@import url('http://fonts.googleapis.com/css?family=Happy+Monkey');
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	border-radius: 0 6px 6px 0;
+}
+
+::-webkit-scrollbar-track-piece  {
+	background-color: #333;
+	border-radius: 0 6px 6px 0;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	background-color: #999;
+	border-radius: 2px 6px 6px 2px;
+}
+
+body {
+	background: #111;
+	color: #eee;
+	font-family: 'Happy Monkey', sans;
+	text-align: center;
+}
+
+input {
+	background: #fa0;
+	border: none;
+	padding: 0.25em;
+	margin: 0.5em;
+	border-radius: 6px;
+	outline: none;
+	font-family: inherit;
+	font-size: 110%;
+}
+
+#shoutlings {
+	width: 240px;
+	height: 420px;
+	background: #777;
+	color: #FFF;
+	overflow: auto;
+	margin: auto;
+	text-align: left;
+	border-radius: 6px;
+}
+
+#shoutlings>div {
+	padding: .25em;
+}
+
+#shoutlings>div:nth-child(odd) {
+	background: rgba(0, 0, 0, .125);
+}
+
+#shoutlings>div>span {
+	padding: .5em;
+}
+
+#shoutlings>div>span:first-child {
+	display: inline-block;
+	font-weight: bold;
+	background: rgba(0, 0, 0, .33);
+	border-radius: 4px;
+	margin: .25em;
+	font-size: 80%;
+}

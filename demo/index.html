@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Shoutlings</title>
+		<link rel="stylesheet" href="main.css" />
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="jquery.cookie.min.js"></script>
+		<script type="text/javascript" src="../shoutlings.js"></script>
+		<script>
+			var shoutlings;
+			
+			function load() {
+				shoutlings = new Shoutlings($('#shoutlings'), '../shoutlings.php');
+				shoutlings.start();
+				$('#shoutlings-name').val($.cookie('shoutlings_name'));
+			}
+			
+			function shout(e) {
+				if(e.type == 'keypress' && e.which != 13)
+					return;
+				shoutlings.send($('#shoutlings-name').val(), $('#shoutlings-text').val());
+				$('#shoutlings-text').val('');
+			}
+			
+			function namecookie(e) {
+				$.cookie('shoutlings_name', e.target.value);
+			}
+		</script>
+	</head>
+	<body onload="load();">
+		<div id="shoutlings"></div>
+		<br />
+		Name <input id="shoutlings-name" onblur="namecookie(event);" style="width: 8em;" /><br />
+		<input id="shoutlings-text" onkeypress="shout(event);" style="width: 240px;" /><br />
+		<input type="button" onclick="shout(event);" value="Shout!" id="shoutlings-shout" />
+	</body>
+</html>

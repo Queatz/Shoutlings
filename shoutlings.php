@@ -13,7 +13,8 @@ if($create) {
 	$result = $db->exec("CREATE TABLE `shoutlings` (
 		`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 		`name` TEXT,
-		`message` TEXT
+		`message` TEXT,
+		`time` INTEGER
 	)");
 	
 	if($result === false)
@@ -28,7 +29,8 @@ if(isset($_POST['write'])) {
 		die();
 	$name = $db->quote($j[0]);
 	$message = $db->quote($j[1]);
-	$result = $db->query("INSERT INTO  `shoutlings` (`name`, `message`) VALUES($name, $message)");
+	$time = time();
+	$result = $db->query("INSERT INTO  `shoutlings` (`name`, `message`, `time`) VALUES($name, $message, $time)");
 	die();
 }
 

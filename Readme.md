@@ -1,7 +1,7 @@
 Shoutlings
 ==========
 
-A lightweight shoutbox backend using jQyery, PHP, and SQLite.
+A lightweight shoutbox backend using jQuery, PHP, and SQLite.
 
 Usage
 -----
@@ -31,11 +31,17 @@ function shout() {
 Styling
 -----
 
-Shoutlings appends to the output div in the following way:
+Shoutlings appends divs with two spans to your specified output:
 
 ```html
-<div>
-	<span>Name</span>
-	<span>Message</span>
+<div id="mydiv">
+	<div>
+		<span>Name</span>
+		<span>Message</span>
+	</div>
+	<div>
+		<span>Name</span>
+		<span>Message</span>
+	</div>
 </div>
 ```

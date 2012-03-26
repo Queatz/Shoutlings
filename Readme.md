@@ -31,7 +31,7 @@ function shout() {
 Styling
 -----
 
-Shoutlings appends divs with two spans to your specified output:
+Shoutlings appends divs with two spans to your specified output.  After two messages it will look like:
 
 ```html
 <div id="mydiv">

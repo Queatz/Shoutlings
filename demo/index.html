@@ -9,11 +9,15 @@
 		<script>
 			var shoutlings;
 			
-			function load() {
+			$(document).ready(function() {
 				shoutlings = new Shoutlings($('#shoutlings'), '../shoutlings.php');
-				shoutlings.start();
+				setTimeout(function() {shoutlings.start();}, 250);
+				
 				$('#shoutlings-name').val($.cookie('shoutlings_name'));
-			}
+				$('#shoutlings-name').blur(function(e) {$.cookie('shoutlings_name', e.target.value);});
+				$('#shoutlings-text').keypress(shout);
+				$('#shoutlings-shout').click(shout);
+			});
 			
 			function shout(e) {
 				if(e.type == 'keypress' && e.which != 13)
@@ -21,17 +25,13 @@
 				shoutlings.send($('#shoutlings-name').val(), $('#shoutlings-text').val());
 				$('#shoutlings-text').val('');
 			}
-			
-			function namecookie(e) {
-				$.cookie('shoutlings_name', e.target.value);
-			}
 		</script>
 	</head>
-	<body onload="load();">
+	<body>
 		<div id="shoutlings"></div>
 		<br />
-		Name <input id="shoutlings-name" onblur="namecookie(event);" style="width: 8em;" /><br />
-		<input id="shoutlings-text" onkeypress="shout(event);" style="width: 240px;" /><br />
-		<input type="button" onclick="shout(event);" value="Shout!" id="shoutlings-shout" />
+		Name <input id="shoutlings-name" style="width: 8em;" /><br />
+		<input id="shoutlings-text" style="width: 240px;" /><br />
+		<input type="button" value="Shout!" id="shoutlings-shout" />
 	</body>
 </html>

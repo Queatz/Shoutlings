@@ -16,7 +16,7 @@ function Shoutlings(output, server) {
 		this.run();
 	}
 	
-	this.run = function() {console.log(this);
+	this.run = function() {
 		var self = this;
 		this.request = $.post(this.server, {id: this.id}, function(data, responseText, jqXHR) {
 			self.request = false;
